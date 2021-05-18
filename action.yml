@@ -1,0 +1,37 @@
+name: 'Asana Github Actions'
+description: 'Asana Github Actions'
+inputs:
+  asana-pat:
+    description: 'Asana Public Access Token.'
+    required: true
+  action:
+    description: 'The action to be performed assert-link|add-comment|remove-comment|move-section|complete-task'
+    required: false
+  github-token:
+    description: 'your github auth token'
+    required: false
+  comment-id:
+    description: 'an (optional) unique comment id to avoid duplicate comments'
+    required: false
+  text:
+    description: 'Provide text, which will add a comment with the pull request link to the asana task.'
+    required: false
+  is-pinned:
+    description: 'Should the asana comment be pinned'
+    required: false
+    default: false
+  targets:
+    description: 'JSON array of objects having project and section where to move current task. Move task only if it exists in target project.'
+    required: false
+  link-required:
+    description: 'When set to true will fail pull requests without an asana link'
+    required: false
+  is-complete:
+    description: 'Is the task complete'
+    required: false
+branding:
+  icon: 'chevron-right'  
+  color: 'gray-dark'
+runs:
+  using: 'node12'
+  main: 'index.js'
