@@ -78,7 +78,7 @@ async function action() {
 
   const pattern = /(wip)/gi;
         if (pattern.test(TITLE) == true) {
-            console.log("found WIP: flag in PR title, issues won't be moved to review")
+            console.log("found WIP: flag in PR title, no asana actions will be done")
             return;
         }
       
