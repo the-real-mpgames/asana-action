@@ -82,7 +82,7 @@ async function action() {
             return;
         }
       
-  const asanaTaskNames = unique( matchAll(BIGSTRING,  /(LH[a-zA-Z]\-[0-9]{1,5})/g).toArray());
+  const asanaTaskNames = unique( matchAll(BIGSTRING,  /(LH[a-zA-Z]\-[0-9]{1,6})/g).toArray());
   console.log(asanaTaskNames);
   
   let foundAsanaTasks = [];
