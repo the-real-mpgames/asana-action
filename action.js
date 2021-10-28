@@ -89,9 +89,13 @@ async function action() {
   var user = await client.users.me();
     const workspaceId = user.workspaces[0].gid;
     for (item of asanaTaskNames) {
+      try{
         var result = await client.tasks.searchInWorkspace(workspaceId, {text: item})
             task = result.data[0].gid
             foundAsanaTasks.push(task); 
+      }catch (error) {
+        console.log('Incorrect asana task number in PR: ' + item);
+      }  
     }
   console.info(`found ${foundAsanaTasks.length} taskIds:`, foundAsanaTasks.join(','));
   console.info('calling', ACTION);
